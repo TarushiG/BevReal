@@ -2,10 +2,14 @@ import Post from "@lib/models/Post";
 import { connectToDB } from "@lib/mongodb/mongoose";
 
 export const GET = async (req, { params }) => {
-  const { query } = params;
-
   try {
     await connectToDB();
+
+    if (!params || !params.query) {
+      throw new Error("Query parameter is missing");
+    }
+
+    const { query } = params;
 
     const searchedPosts = await Post.find({
       $or: [
@@ -17,6 +21,7 @@ export const GET = async (req, { params }) => {
     return new Response(JSON.stringify(searchedPosts), { status: 200 });
   } catch (err) {
     console.log(err);
-    return new Response("Failed to get posts by search", { status: 500 })
+    return new Response("Failed to get posts by search", { status: 500 });
   }
 };
+
