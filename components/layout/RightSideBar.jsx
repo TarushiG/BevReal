@@ -15,9 +15,7 @@ const RightSideBar = () => {
         />
         <p className="text-body-bold text-light-1">Febreze Air Freshener</p>
         <p className="text-small-semibold text-light-2">
-          Instant odor fighting and a burst of freshness. Amazing summer scent.
-          It is so light and fruity and if you are a scent person it has major
-          happy vibes.
+          Share what you're drinking with everyone, and track each other's beverage experiences!
         </p>
       </div>
     </div>
